@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View all tickets</title>
+</head>
+<body>
+    <h1>  Hi Admin, please add the airplane below:
+    </h1>
+    <form action="/add_airplane" method="POST">
+        <input type="text" name = "ariline_name" placeholder="airline_name" required/> </br>
+        <input type="text" name = "airplane_id" placeholder="airplane_id" required/> </br>
+        <input type="submit" value = Add />
+        {% if error %}
+            <p class="error"><strong>Error:</strong> {{error}}</p>
+        {% endif %}
+    </form>
+    
+    <a href="/">Go back</a>
+
+</body>
+</body>
+</html>

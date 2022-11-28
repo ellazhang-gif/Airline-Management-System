@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View all tickets</title>
+</head>
+<body>
+    <form action="/airline_stuff_home/admin_operator" method ="POST">
+        <h1>  Welcome, {{session['role']}}: {{session['username']}}! Permission: Operator 
+        </h1>
+    </form>
+    <button onclick="window.location.href='/login'";> Log Out </button><br>
+    <div>
+        <h2>View my flights</h2>
+            <form action="/airline_stuff_home/admin_operator" method="POST">
+                <div>
+                    <span>Start Date</span>
+                    <input type="date" name = "departure_date">
+                    <span>End Date</span>
+                    <input type="date" name = "arrival_date">
+                    <span>Flight Number</span>
+                    <input type="text" name = "flight">
+                    <span>Departure Airport</span>
+                    <input type="text" name = "departure_airport">
+                    <span>Arrival Airport</span>
+                    <input type="text" name = "arrival_airport">
+                    <span>Departure City</span>
+                    <input type="text" name = "departure_city">
+                    <span>Arrival City</span>
+                    <input type="text" name = "arrival_city">
+                    <button type="submit"> Search </button>
+                </div>
+            </form>
+        <table border = "1" cellspacing="0">
+            <tr>
+                <td>airline_name</td>
+                <td>flight_num</td>
+                <td>departure_airport</td>
+                <td>departure_time</td>
+                <td>arrival_airport</td>
+                <td>arrival_time</td>
+                <td>price</td>
+                <td>status</td>
+                <td>airplane_id</td>
+            </tr>
+            {%for row in search_flight%}
+            <tr>
+                <!-- if select all from db, then output is a dictionary,
+                if select specifically then the output is a list -->
+                <td>{{row['airline_name']}}</td>
+                <td>{{row['flight_num']}}</td>
+                <td>{{row['departure_airport']}}</td>
+                <td>{{row['departure_time']}}</td>
+                <td>{{row['arrival_airport']}}</td>
+                <td>{{row['arrival_time']}}</td>
+                <td>{{row['price']}}</td>
+                <td>{{row['status']}}</td>
+                <td>{{row['airplane_id']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% if error0 %}
+        <p class="error"><strong>Error: </strong> {{error0}}</p>
+        {% endif %}
+    </div>
+
+    <div>
+        <h2>Customer List for a Flight</h2>
+            <form action="/airline_stuff_home/admin_operator" method="POST">
+                <div>
+                    <span>Flight Number</span>
+                    <input type="text" name = "flight_num">
+                    <button type="submit"> Search </button>
+                </div>
+            </form>
+        <table border = "1" cellspacing="0">
+            <tr>
+                <td>customer_name</td>
+                <td>customer_email</td>
+            </tr>
+            {%for row in search_flight%}
+            <tr>
+                <!-- if select all from db, then output is a dictionary,
+                if select specifically then the output is a list -->
+                <td>{{row['customer_name']}}</td>
+                <td>{{row['customer_email']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% if error1 %}
+        <p class="error"><strong>Error: </strong> {{error1}}</p>
+        {% endif %}
+    </div>
+
+
+
+
+    <div>
+        <h2>Update Airline Information</h2>
+        <button onclick="window.location.href='/change_status'";> Change Status of Flights</button> <br>
+    </div>
+
+
+    <div>
+        <h2>View the Top 5 Booking Agent(default last period)</h2>
+            <form action="/top_5_booking_agent_by_month" method ="POST">
+                <h3>Top 5 booking agents in past month(tickets sales)</h3>  
+                <div>
+                    <span>Search Month</span>
+                    <input type="month" name = "month"> <!--need to check month variable, maybe update-->
+                    <button type="submit"> Search </button>
+                </div>
+            </form>
+        <table border = "1" cellspacing="0">
+            <tr>
+                <td>Rank</td>
+                <td>Bookings Agents Name</td>
+                <td>Booking Agents Email Address</td>
+            <tr>
+            {%for row in ranking_for_month%}
+            <tr>
+                <td>{{row['rank']}}</td>
+                <td>{{row['booking_agent_name']}}</td>
+                <td>{{row['booking_agent_email_address']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% if error2 %}
+        <p class="error"><strong>Error: </strong> {{error2}}</p>
+        {% endif %}
+
+
+            <form action="/top_5_booking_agent_by_year" method ="POST">
+                <h3>Top 5 booking agents in past year(tickets sales)</h3>
+                <div>
+                    <span>Search Year</span>
+                    <input type="year" name = "year"> <!--need to check month variable, year update-->
+                    <button type="submit"> Search </button>
+                </div>
+            </form>
+        <table border = "1" cellspacing="0">
+            <tr>
+                <td>Rank</td>
+                <td>Bookings Agents Name</td>
+                <td>Booking Agents Email Address</td>
+            <tr>
+            {%for row in ranking_for_year%}
+            <tr>
+                <td>{{row['rank']}}</td>
+                <td>{{row['booking_agent_name']}}</td>
+                <td>{{row['booking_agent_email_address']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% if error3 %}
+        <p class="error"><strong>Error: </strong> {{error3 }}</p>
+        {% endif %}
+
+
+            <form action="/top_5_booking_agent_commission_received" method ="POST"></form>
+                <h3>Top 5 booking agents in last year(commission received)</h3>
+                <table border = "1" cellspacing="0">
+                    <tr>
+                        <td>Rank</td>
+                        <td>Bookings Agents Name</td>
+                        <td>Booking Agents Email Address</td>
+                    <tr>
+                    {%for row in ranking_for_commission_received%}
+                    <tr>
+                        <td>{{row['rank']}}</td>
+                        <td>{{row['booking_agent_name']}}</td>
+                        <td>{{row['booking_agent_email_address']}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+    </div>
+
+
+    <div>
+        <h2>Customer Search Service Section</h2>
+        <form action="/frequent_custormer" method ="POST">
+            <h3>Most frequent custormer within the last year: {{frequent_customer_name}}, Email Address: {{frequent_customer_email}}</h3>
+        </form>
+        
+        <form action="/frequent_custormer" method ="POST">
+            <h3>Search for particular customer</h3>
+            <div>
+                <span>Customer Email</span>
+                <input type="text" name = "customer_email">
+                <span>Airline</span>
+                <input type="text" name = "airline_name">
+                <button type="submit"> Search </button>
+            </div>
+        </form>
+        <table border = "1" cellspacing="0">
+            <tr>
+                <td>customer_name</td>
+                <td>customer_email</td>
+                <td>Airline_name</td>
+                <td>flight_num</td>
+                <td>departure_airport</td>
+                <td>departure_time</td>
+                <td>arrival_airport</td>
+                <td>arrival_time</td>
+                <td>airplane_id</td>
+            </tr>
+            {%for row in search_customer%}
+            <tr>
+                <!-- if select all from db, then output is a dictionary,
+                if select specifically then the output is a list -->
+                <td>{{row['name']}}</td>
+                <td>{{row['email']}}</td>
+                <td>{{row['airline_name']}}</td>
+                <td>{{row['flight_num']}}</td>
+                <td>{{row['departure_airport']}}</td>
+                <td>{{row['departure_time']}}</td>
+                <td>{{row['arrival_airport']}}</td>
+                <td>{{row['arrival_time']}}</td>
+                <td>{{row['airplane_id']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% if error4 %}
+        <p class="error"><strong>Error: </strong> {{error4}}</p>
+        {% endif %}
+    </div>
+
+
+    <div>
+        <h2>Ticket Report</h2> 
+        <form  method="POST" action="/view_report">
+            <div class="input-group mb-3">
+              <span >Begin Date</span>
+              <input type="date" name = "begin_date" class="form-control"><br>
+              <span >End Date</span>
+              <input type="date" name = "end_date" class="form-control">
+              <button type="submit">Search</button>
+            </div>
+        </form>
+        <!-- return an image -->
+        <img src="{{bar_chart}}" align="middle"/>
+    </div>
+
+
+    <div>
+        <h2>Revenue Earned Division Pie Chart</h2> 
+        <form  method="POST" action="/comparison_of_revenue_earned_last_month"></form>
+        <h3> for last month</h3>
+        <!-- return an image -->
+        <img src="{{pie_chart_last_month}}" align="middle"/>
+        <h3> for last year</h3>
+        <!-- return an image -->
+        <img src="{{pie_chart_last_year}}" align="middle"/>
+    </div>
+
+    <div>
+        <h2>Most popular destinations</h2>
+        <form action="/top_destinations" method ="POST"></form>
+            <h3>Top 3 most popular destinations in last 3 months</h3>
+        <table border = "1" cellspacing="0">
+            <tr>
+                <td>Rank</td>
+                <td>top 3 most popular destinations for last 3 month</td>
+            <tr>
+            {%for row in ranking_last_3_month%}
+            <tr>
+                <td>{{row['rank']}}</td>
+                <td>{{row['arrival_airport']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <form action="/top_destinations" method ="POST"></form>
+            <h3>Top 3 most popular destinations in last 3 months</h3>
+        <table border = "1" cellspacing="0">
+            <tr>
+                <td>Rank</td>
+                <td>top 3 most popular destinations for last year</td>
+            <tr>
+            {%for row in ranking_last_year%}
+            <tr>
+                <td>{{row['rank']}}</td>
+                <td>{{row['arrival_airport']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</body>
+</body>
+</html>

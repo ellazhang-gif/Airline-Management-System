@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View all tickets</title>
+</head>
+<body>
+    <h1>  Hi Operator, please change the staus of a flight below:
+    </h1>
+    <form action="/change_status" method="POST">
+        <input type="text" name = "ariline_name" placeholder="airline_name" required/> </br>
+        <input type="text" name = "flight_num" placeholder="flight_num" required/> </br>
+        <input type="text" name = "status" placeholder="status" required/> </br>
+        <input type="submit" value = Change />
+        {% if error %}
+            <p class="error"><strong>Error:</strong> {{error}}</p>
+        {% endif %}
+    </form>
+    
+    <a href="/">Go back</a>
+
+</body>
+</body>
+</html>

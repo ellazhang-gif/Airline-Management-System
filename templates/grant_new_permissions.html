@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View all tickets</title>
+</head>
+<body>
+    <h1>  Hi Admin, please grant a new permission for a staff below:
+    </h1>
+    <form action="/grant_new_permissions" method="POST">
+        <input type="text" name = "username" placeholder="username" required/> </br>
+        <input type="text" name = "permission_type" placeholder="permission_type" required/> </br>
+        <input type="submit" value = Grant />
+        {% if error %}
+            <p class="error"><strong>Error:</strong> {{error}}</p>
+        {% endif %}
+    </form>
+    
+    <a href="/">Go back</a>
+
+</body>
+</body>
+</html>
