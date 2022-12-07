@@ -99,33 +99,33 @@ insert into Flight values ('American Airlines', 'AA761', '2022-12-05 15:33:00', 
     '877', 'in-progress', 'BOS', 'LAX', '3333');
 
 
-insert into Ticket values ('1', 'China Eastern', 'MU588', 'tom123@gmail.com', null, '2022-11-30');
-insert into Ticket values ('2', 'China Eastern', 'MU588', 'Amy456@gmail.com', 'citytrip@163.com', '2022-10-10');
-insert into Ticket values ('3', 'China Eastern', 'MU3473', 'tom123@gmail.com', null, '2022-09-29');
-insert into Ticket values ('4', 'China Eastern', 'MU3473', 'Amy456@gmail.com', 'expedia@gmail.com', '2021-12-21');
-insert into Ticket values ('5', 'China Eastern', 'MU319', 'xiaoming@163.com', 'citytrip@163.com', '2022-05-04');
-insert into Ticket values ('6', 'Delta Airlines', 'DA144', 'xiaoming@163.com', 'expedia@gmail.com', '2022-05-15');
-insert into Ticket values ('7', 'China International Airline', 'CA277', 'Amy456@gmail.com', 'Tuniulvxing@qq.com', '2020-03-07');
-insert into Ticket values ('8', 'Delta Airlines', 'DA144', 'tom123@gmail.com', null, '2022-12-01');
-insert into Ticket values ('9', 'China Eastern', 'MU319', 'tom123@gmail.com', null, '2022-11-30');
-insert into Ticket values ('10', 'China International Airline', 'CA277', 'tom123@gmail.com', null, '2020-10-09');
-insert into Ticket values ('11', 'China International Airline', 'CA277', 'Amy456@gmail.com', 'expedia@gmail.com', '2021-01-03');
-insert into Ticket values ('12', 'China International Airline', 'CA5473', 'xiaoming@163.com', 'Tuniulvxing@qq.com', '2022-02-04');
-insert into Ticket values ('13', 'China International Airline', 'CA5473', 'tom123@gmail.com', null, '2021-04-07');
-insert into Ticket values ('14','China International Airline', 'CA388', 'xiaoming@163.com', 'expedia@gmail.com', '2022-01-28');
-insert into Ticket values ('15','China International Airline', 'CA388', 'Amy456@gmail.com', 'citytrip@163.com', '2022-03-01');
-insert into Ticket values ('16','Delta Airlines', 'DA522', 'tom123@gmail.com', null, '2022-04-05');
-insert into Ticket values ('17','Delta Airlines', 'DA522', 'Amy456@gmail.com', 'citytrip@163.com', '2021-11-08');
-insert into Ticket values ('18','American Airlines', 'AA876', 'shiyuan123@126.com', 'thankyoutrip@163.com', '2021-06-05');
-insert into Ticket values ('19','American Airlines', 'AA876', 'andyzhang@126.com', 'citytrip@163.com', '2022-10-03');
-insert into Ticket values ('20','American Airlines', 'AA761', 'shiyuan123@126.com', null, '2022-05-02');
-insert into Ticket values ('21','American Airlines', 'AA761', 'andyzhang@126.com', null, '2022-05-16');
-insert into Ticket values ('22','American Airlines', 'AA761', 'amy456@gmail.com', 'dontknowwhattoadd@qq.com', '2022-03-17');
-insert into Ticket values ('23','Korean Air', 'KE054', 'amy456@gmail.com', 'taobao@126.com', '2020-10-18');
-insert into Ticket values ('24','Korean Air', 'KE054', 'shiyuan123@126.com', 'dontknowwhattoadd@qq.com', '2021-06-09');
-insert into Ticket values ('25','Korean Air', 'KE054', '62836192@qq.com', null, '2022-04-07');
-insert into Ticket values ('26','Korean Air', 'KE997', '62836192@qq.com', null, '2022-09-10');
-insert into Ticket values ('27','Korean Air', 'KE997', 'xiaoming@163.com', 'taobao@126.com', '2022-01-17');
+insert into Ticket values (1, 'China Eastern', 'MU588', 'tom123@gmail.com', null, '2022-11-30');
+insert into Ticket values (2, 'China Eastern', 'MU588', 'Amy456@gmail.com', 'citytrip@163.com', '2022-10-10');
+insert into Ticket values (3, 'China Eastern', 'MU3473', 'tom123@gmail.com', null, '2022-09-29');
+insert into Ticket values (4, 'China Eastern', 'MU3473', 'Amy456@gmail.com', 'expedia@gmail.com', '2021-12-21');
+insert into Ticket values (5, 'China Eastern', 'MU319', 'xiaoming@163.com', 'citytrip@163.com', '2022-05-04');
+insert into Ticket values (6, 'Delta Airlines', 'DA144', 'xiaoming@163.com', 'expedia@gmail.com', '2022-05-15');
+insert into Ticket values (7, 'China International Airline', 'CA277', 'Amy456@gmail.com', 'Tuniulvxing@qq.com', '2020-03-07');
+insert into Ticket values (8, 'Delta Airlines', 'DA144', 'tom123@gmail.com', null, '2022-12-01');
+insert into Ticket values (9, 'China Eastern', 'MU319', 'tom123@gmail.com', null, '2022-11-30');
+insert into Ticket values (10, 'China International Airline', 'CA277', 'tom123@gmail.com', null, '2020-10-09');
+insert into Ticket values (11, 'China International Airline', 'CA277', 'Amy456@gmail.com', 'expedia@gmail.com', '2021-01-03');
+insert into Ticket values (12, 'China International Airline', 'CA5473', 'xiaoming@163.com', 'Tuniulvxing@qq.com', '2022-02-04');
+insert into Ticket values (13, 'China International Airline', 'CA5473', 'tom123@gmail.com', null, '2021-04-07');
+insert into Ticket values (14,'China International Airline', 'CA388', 'xiaoming@163.com', 'expedia@gmail.com', '2022-01-28');
+insert into Ticket values (15,'China International Airline', 'CA388', 'Amy456@gmail.com', 'citytrip@163.com', '2022-03-01');
+insert into Ticket values (16,'Delta Airlines', 'DA522', 'tom123@gmail.com', null, '2022-04-05');
+insert into Ticket values (17,'Delta Airlines', 'DA522', 'Amy456@gmail.com', 'citytrip@163.com', '2021-11-08');
+insert into Ticket values (18,'American Airlines', 'AA876', 'shiyuan123@126.com', 'thankyoutrip@163.com', '2021-06-05');
+insert into Ticket values (19,'American Airlines', 'AA876', 'andyzhang@126.com', 'citytrip@163.com', '2022-10-03');
+insert into Ticket values (20,'American Airlines', 'AA761', 'shiyuan123@126.com', null, '2022-05-02');
+insert into Ticket values (21,'American Airlines', 'AA761', 'andyzhang@126.com', null, '2022-05-16');
+insert into Ticket values (22,'American Airlines', 'AA761', 'amy456@gmail.com', 'dontknowwhattoadd@qq.com', '2022-03-17');
+insert into Ticket values (23,'Korean Air', 'KE054', 'amy456@gmail.com', 'taobao@126.com', '2020-10-18');
+insert into Ticket values (24,'Korean Air', 'KE054', 'shiyuan123@126.com', 'dontknowwhattoadd@qq.com', '2021-06-09');
+insert into Ticket values (25,'Korean Air', 'KE054', '62836192@qq.com', null, '2022-04-07');
+insert into Ticket values (26,'Korean Air', 'KE997', '62836192@qq.com', null, '2022-09-10');
+insert into Ticket values (27,'Korean Air', 'KE997', 'xiaoming@163.com', 'taobao@126.com', '2022-01-17');
 
 
 
