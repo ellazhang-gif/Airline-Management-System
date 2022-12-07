@@ -98,3 +98,9 @@ create table Ticket
         on delete set null
     );
 
+create table Works_for(
+    airline_name varchar(20),
+    booking_agent_email varchar(20),
+    primary key (airline_name, booking_agent_email),
+	foreign key (airline_name) references Airline(airline_name),
+    foreign key (booking_agent_email) references Booking_Agent(booking_agent_email));
