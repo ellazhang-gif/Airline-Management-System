@@ -83,7 +83,7 @@ create table Customer
     );
 
 create table Ticket
-    (ticket_id      varchar(20),
+    (ticket_id      (20),
      airline_name   varchar(20),
      flight_num     varchar(10),
      customer_email varchar(20),
