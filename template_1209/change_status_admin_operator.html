@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View all tickets</title>
+</head>
+<body>
+    <h1>  Hi {{session['username']}}, welcome to change flight status page </h1> 
+    <h2> You can change the flight status below:</h2>
+    <form action="/airline_staff_home_admin_operator/change_status/action" method="POST">
+        <input type="text" name = "airline_name" placeholder="airline_name" required/> </br>
+        <input type="text" name = "flight_num" placeholder="flight_num" required/> </br>
+        <input type="text" name = "status" placeholder="status" required/> </br>
+        <input type="submit" value = Change />
+        {% if error %}
+            <p class="error"><strong>Error:</strong> {{error}}</p>
+        {% endif %}
+    </form>
+    
+    <div><button onclick="window.location.href='/airline_staff_home_admin_operator'";> Go back</button> <br></div>
+
+</body>
+</body>
+</html>

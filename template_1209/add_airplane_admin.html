@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View all tickets</title>
+</head>
+<body>
+    <form action="/airline_staff_home_admin/add_airplane" method ="POST"></form>
+    <h1>  Hi {{session['username']}}, welcome to add airplane page </h1> 
+    <h2>Here are all the airplanes owned by your airline:</h2>
+        <table border = "1" cellspacing="0">
+            <tr>
+                <td>airplane_id</td>
+                <td>seats</td>
+            </tr>
+            {%for row in my_airplane%}
+            <tr>
+                <!-- if select all from db, then output is a dictionary,
+                if select specifically then the output is a list -->
+                <td>{{row['airplane_id']}}</td>
+                <td>{{row['seats']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% if error0 %}
+        <p class="error"><strong>Error: </strong> {{error0}}</p>
+    {% endif %}
+    
+    <h2> please add the airplane below:
+    </h2>
+    <form action="/airline_staff_home_admin/add_airplane/action" method="POST">
+        <input type="text" name = "airline_name" placeholder="airline_name" required/> </br>
+        <input type="text" name = "airplane_id" placeholder="airplane_id" required/> </br>
+        <input type="text" name = "seats" placeholder="seats" required/> </br>
+        <input type="submit" value = Add />
+        {% if error %}
+            <p class="error"><strong>Error:</strong> {{error}}</p>
+        {% endif %}
+    </form>
+
+    <div><button onclick="window.location.href='/airline_staff_home_admin'";> Go back</button> <br></div>
+</body>
+</body>
+</html>

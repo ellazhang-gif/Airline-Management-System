@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View all tickets</title>
+</head>
+<body>
+    <form action="/airline_staff_home_admin_operator/add_airport" method ="POST"></form>
+    <h1>  Hi {{session['username']}}, welcome to add airport page </h1> 
+    <h2>Here are all the airports in the world:</h2>
+        <table border = "1" cellspacing="0">
+            <tr>
+                <td>airport_name</td>
+                <td>airport_city</td>
+            </tr>
+            {%for row in world_airport%}
+            <tr>
+                <!-- if select all from db, then output is a dictionary,
+                if select specifically then the output is a list -->
+                <td>{{row['airport_name']}}</td>
+                <td>{{row['airport_city']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    <h2>Here are all the airports your airline support:</h2>
+        <table border = "1" cellspacing="0">
+            <tr>
+                <td>airport_name</td>
+                <td>airline_name</td>
+            </tr>
+            {%for row in my_airport%}
+            <tr>
+                <!-- if select all from db, then output is a dictionary,
+                if select specifically then the output is a list -->
+                <td>{{row['airport_name']}}</td>
+                <td>{{row['airline_name']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% if error0 %}
+        <p class="error"><strong>Error: </strong> {{error0}}</p>
+    {% endif %}
+
+    <h2>Please add a new airport for your airline:</h2>
+    <form action="/airline_staff_home_admin_operator/add_airport/my_action" method="POST">
+        <input type="text" name = "airport_name" placeholder="airport_name" required/> </br>
+        <input type="text" name = "airline_name" placeholder="airline_name" required/> </br>
+        <input type="submit" value = Add />
+        {% if error2 %}
+            <p class="error"><strong>Error:</strong> {{error2}}</p>
+        {% endif %}
+    </form>
+    
+    <div><button onclick="window.location.href='/airline_staff_home_admin_operator'";> Go back</button> <br></div>
+
+</body>
+</body>
+</html>

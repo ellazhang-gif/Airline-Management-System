@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View all tickets</title>
+</head>
+<body>
+    <form action="/airline_staff_home_admin_operator/grant_new_permissions" method ="POST"></form>
+    <h1>  Hi {{session['username']}}, welcome to grant new permission page </h1> 
+    <h2> Here are all the staffs with permissions in your airline:</h2>
+    <table border = "1" cellspacing="0">
+        <tr>
+            <td>Staff_User_Name</td>
+            <td>Permission</td>
+        </tr>
+        {%for row in permission_table%}
+        <tr>
+            <!-- if select all from db, then output is a dictionary,
+            if select specifically then the output is a list -->
+            <td>{{row['staff_user_name']}}</td>
+            <td>{{row['permission_name']}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2> Here are all the staffs in your airline:</h2>
+    <table border = "1" cellspacing="0">
+        <tr>
+            <td>Staff_User_Name</td>
+        </tr>
+        {%for row in staff_table%}
+        <tr>
+            <!-- if select all from db, then output is a dictionary,
+            if select specifically then the output is a list -->
+            <td>{{row['staff_user_name']}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2> You can grant new permissions for staffs below:</h2>
+    <form action="/airline_staff_home_admin_operator/grant_new_permissions/action" method="POST">
+        <input type="text" name = "staff_user_name" placeholder="staff_user_name" required/> </br>
+        <input type="text" name = "permission_name" placeholder="permission_name" required/> </br>
+        <input type="submit" value = Grant />
+        {% if error %}
+            <p class="error"><strong>Error:</strong> {{error}}</p>
+        {% endif %}
+    </form>
+    
+    <div><button onclick="window.location.href='/airline_staff_home_admin_operator'";> Go back</button> <br></div>
+
+</body>
+</body>
+</html>
