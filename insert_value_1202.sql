@@ -127,11 +127,17 @@ insert into Ticket values (25,'Korean Air', 'KE054', '62836192@qq.com', null, '2
 insert into Ticket values (26,'Korean Air', 'KE997', '62836192@qq.com', null, '2022-09-10');
 insert into Ticket values (27,'Korean Air', 'KE997', 'xiaoming@163.com', 'taobao@126.com', '2022-01-17');
 
-insert into Works_for values ('Korean Air', 'citytrip@163.com');
-insert into Works_for values ('China International Airline', 'Tuniulvxing@qq.com');
-insert into Works_for values ('Delta Airlines', 'expedia@gmail.com');
-insert into Works_for values ('China International Airline', 'taobao@126.com');
-
+insert into Works_for values ('China Eastern', 'citytrip@163.com');
+insert into Works_for values ('China International', 'citytrip@163.com');
+insert into Works_for values ('Delta Airlines', 'citytrip@163.com');
+insert into Works_for values ('American Airlines', 'citytrip@163.com');
+insert into Works_for values ('China International', 'Tuniulvxing@qq.com');
+insert into Works_for values ('China Eastern', 'expedia@gmail.com');
+insert into Works_for values ('China International', 'expedia@gmail.com');
+insert into Works_for values ('Korean Air', 'taobao@126.com');
+insert into Works_for values ('American Airlines', 'thankyoutrip@163.com');
+insert into Works_for values ('American Airlines', 'dontknowwhattoadd@qq');
+insert into Works_for values ('Korean Air', 'dontknowwhattoadd@qq');
 
 
 
