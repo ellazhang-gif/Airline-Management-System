@@ -39,6 +39,74 @@ def welcome():
     session.clear()
     return render_template('welcome.html')
 
+@app.route('/staff_register',methods=['GET', 'POST'])
+def register_staff():
+    query = "select airline_name from airline"
+    cursor = conn.cursor()
+    cursor.execute(query)
+    airline = cursor.fetchall()
+    cursor.close()
+    airlines = []
+    for i in airline:
+        airlines.append(i['airline_name'])
+    return render_template('staff_register.html',airlines = airlines)
+
+@app.route('/registerAuth_staff', methods=['GET', 'POST'])
+def registerAuth_staff():
+    query = "select airline_name from airline"
+    cursor = conn.cursor()
+    cursor.execute(query)
+    airline = cursor.fetchall()
+    cursor.close()
+    airlines = []
+    for i in airline:
+        airlines.append(i['airline_name'])
+
+    username = request.form['email']
+    password = request.form['password']
+    password2 = request.form['password2']
+    airline_name = request.form["airline_name"]
+
+    #cursor used to send queries
+    cursor = conn.cursor()
+    #executes query
+    query = 'SELECT * FROM airline_staff WHERE staff_user_name = %s'
+    cursor.execute(query, (username))
+    data = cursor.fetchone()
+
+    query_airline = 'SELECT * FROM airline WHERE airline_name = %s'
+    cursor.execute(query_airline, airline_name)
+    print(airline_name)
+    data2 = cursor.fetchone()
+
+    error = None
+
+    if data2 == None:
+        error = 'Airline name does not exist in the database.'
+        return render_template('staff_register.html', error = error,airlines = airlines)
+
+    if password != password2:
+        error = "Password does not match"
+        return render_template('staff_register.html', error = error,airlines = airlines)
+
+    if(data):
+        #If the previous query returns data, then user exists
+        error = "This user already exists"
+        return render_template('staff_register.html', error = error,airlines = airlines)
+
+    else:
+        firstName = request.form["first_name"]
+        lastName = request.form["last_name"]
+        d_birth = request.form['date_of_birth']
+        birthday = datetime.datetime.strptime(d_birth,'%Y-%m-%d')
+        # password = generate_password_hash(password)
+        ins1 = 'INSERT INTO airline_staff VALUES(%s, %s, %s, %s, %s, %s)'
+        cursor.execute(ins1, (username, password, firstName, lastName, birthday, airline_name))
+
+        conn.commit()
+        cursor.close()
+        return render_template('staff_register.html',success = username,airlines = airlines)
+
 @app.route('/login')
 def login():
 	return render_template('login.html')
