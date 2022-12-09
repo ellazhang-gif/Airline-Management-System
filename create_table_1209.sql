@@ -72,7 +72,7 @@ create table Flight
 create table Booking_Agent
     (booking_agent_email        varchar(20) not null,
      booking_agent_password     varchar(20) not null,
-     booking_agent_id           varchar(20) not null,
+     booking_agent_id           int(20) not null,
      primary key (booking_agent_email)
     );
 
