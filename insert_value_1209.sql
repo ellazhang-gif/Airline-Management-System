@@ -31,12 +31,12 @@ insert into Customer values ('andyzhang@126.com', 'Andy Zhang', 'hahahahaha',
     '11', 'East Ocean Road', 'New York', 'New York', '526192731', 'UT761823', '2025-09-31',
     'US', '1992-03-04');
 
-insert into Booking_Agent values ('citytrip@163.com', 'citytrip134', '034');
-insert into Booking_Agent values ('Tuniulvxing@qq.com', 'tuniu888', '145');
-insert into Booking_Agent values ('expedia@gmail.com', 'expedia66', '021');
-insert into Booking_Agent values ('taobao@126.com', 'taobaohaha', '093');
-insert into Booking_Agent values ('thankyoutrip@163.com', 'thankyousir', '372');
-insert into Booking_Agent values ('dontknowwhattoadd@qq.com', 'lmao66', '999');
+insert into Booking_Agent values ('citytrip@163.com', 'citytrip134', 34);
+insert into Booking_Agent values ('Tuniulvxing@qq.com', 'tuniu888', 145);
+insert into Booking_Agent values ('expedia@gmail.com', 'expedia66', 21);
+insert into Booking_Agent values ('taobao@126.com', 'taobaohaha', 93);
+insert into Booking_Agent values ('thankyoutrip@163.com', 'thankyousir', 372);
+insert into Booking_Agent values ('dontknowwhattoadd@qq.com', 'lmao66', 999);
 
 insert into Airplane values ('0935', 'China Eastern', '200');
 insert into Airplane values ('4726', 'China International Airline', '200');
