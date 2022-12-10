@@ -80,7 +80,7 @@ create table Customer
     (customer_email     varchar(20) not null,
      customer_name      varchar(20) not null,
      customer_password  varchar(20) not null,
-     building_number    varchar(7) not null,
+     building_number    varchar(30) not null,
      street             varchar(30) not null,
      city               varchar(15) not null,
      state              varchar(15) not null,
