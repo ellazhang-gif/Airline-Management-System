@@ -4,7 +4,7 @@ create table Airline
 	);
 
 create table Airline_Staff
-    (staff_user_name      varchar(20),
+    (staff_user_name      varchar(30),
      staff_password       varchar(20) not null,
      staff_first_name     varchar(20) not null,
      staff_last_name      varchar(20) not null,
