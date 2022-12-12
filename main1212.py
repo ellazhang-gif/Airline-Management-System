@@ -46,7 +46,7 @@ app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(days=7)
 conn = pymysql.connect(host='localhost',
                        user='root',
                        password='',
-                       db='A8',
+                       db='Airline Ticket',
                        charset='utf8mb4',
                        cursorclass=pymysql.cursors.DictCursor)
 
