@@ -5,27 +5,120 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <title>Homepage</title>
+<style>
+        p {
+          background-color: yellow;
+        }
+        .content-table{
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            min-width: 400px;
+            border-radius: 5px 5px 0 0 ;
+            overflow: hidden;
+        }
+        .content-table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+        .content-table th,
+        .content-table td{
+            padding: 12px 15 px;
+        }
+        .content-table tbody tr{
+            border-bottom: 1px solid #dddddd;
+        }
+        .content-table tbody tr:nth-of-type(even){
+            background-color: #f3f3f3;
+        }
+        .button{
+            position: relative;
+            text-align: center;
+            color:  #009879;
+            font-weight: 400;
+            transition: 1.5s;
+        }
+</style>
 </head>
 <br>
-<body>
-    
-<h1> Welcome to Airline Managment System</h1>
+<body class = 'hero'>
+<h1>Welcome!</h1>
+<h2>Your Account
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+</h2>
 <table>
     <tr>
-        <td>Already a user </td>
-        <td><button type="button" onclick="window.location.href='/login'";> Sign-in with email </a></button><br></td>
+        <td><button class = 'button' type="button" onclick="window.location.href='/login'";> Sign-in</a></button><br></td>
+        <td>OR</td>
+        <td>Register As</td>
+        <td><button class = 'button' type="button" onclick="window.location.href='/customer_register'";>Customer</a></button><br></td>
+        <td>/</td>
+        <td><button class = 'button' type="button" onclick="window.location.href='/agent_register'";>Agent</a></button><br></td>
+        <td>/</td>
+        <td><button class = 'button' type="button" onclick="window.location.href='/staff_register'";>Staff</a></button><br></td>
     </tr>
-
+</table>
+<h2>Search For Flight
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+</h2>
     <tr>
-        <td>Don't have an account? Register as </td>
-        <td><button onclick="window.location.href='/customer_register'";> Customer</button></td>
-        <td><button onclick="window.location.href='/staff_register'";> Airline Staff </a></button><br></td>
-        <td><button onclick="window.location.href='/agent_register'";> Agent </a></button><br></td>
-    </tr>
-    <tr>
-        <td>Search as a visitor </td>
-        <td><button onclick="window.location.href='/upcoming_flight'";>View Upcoming Flights</button></td>
+        <td><button class = 'button' onclick="window.location.href='/upcoming_flight'";>Search</button></td>
     </tr>
 </table>
 </body>

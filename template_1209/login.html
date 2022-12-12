@@ -5,9 +5,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <style>
+        p {
+          background-color: yellow;
+        }
+        .content-table{
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            min-width: 400px;
+            border-radius: 5px 5px 0 0 ;
+            overflow: hidden;
+        }
+        .content-table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+        .content-table th,
+        .content-table td{
+            padding: 12px 15 px;
+        }
+        .content-table tbody tr{
+            border-bottom: 1px solid #dddddd;
+        }
+        .content-table tbody tr:nth-of-type(even){
+            background-color: #f3f3f3;
+        }
+        .button{
+            position: relative;
+            text-align: center;
+            color:  #009879;
+            font-weight: 400;
+            transition: 1.5s;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Airline system</h1>
+    <h1>Welcome! Please sign in:
+        <ion-icon name="airplane-outline" ></ion-icon>
+        <ion-icon name="airplane-outline" ></ion-icon>
+        <ion-icon name="airplane-outline" ></ion-icon>
+        <ion-icon name="airplane-outline" ></ion-icon>
+        <ion-icon name="airplane-outline" ></ion-icon>
+        <ion-icon name="airplane-outline" ></ion-icon>
+        <ion-icon name="airplane-outline" ></ion-icon>
+        <ion-icon name="airplane-outline" ></ion-icon>
+        <ion-icon name="airplane-outline" ></ion-icon>
+        <ion-icon name="airplane-outline" ></ion-icon>
+        <ion-icon name="airplane-outline" ></ion-icon>
+        <ion-icon name="airplane-outline" ></ion-icon>
+        <ion-icon name="airplane-outline" ></ion-icon>
+        <ion-icon name="airplane-outline" ></ion-icon>
+        <ion-icon name="airplane-outline" ></ion-icon>
+        <ion-icon name="airplane-outline" ></ion-icon>
+        <ion-icon name="airplane-outline" ></ion-icon>
+        <ion-icon name="airplane-outline" ></ion-icon>
+        <ion-icon name="airplane-outline" ></ion-icon>
+        <ion-icon name="airplane-outline" ></ion-icon>
+        <ion-icon name="airplane-outline" ></ion-icon>
+    </h1>
     <form action="/loginAuth" method="POST">
         <table>
         <tr>
@@ -24,7 +83,7 @@
         <tr>
             <td>Username</td>
             <td>
-                <input type="text" value="Email@gmail.com" name="username" id="email" required/> 
+                <input type="text" name="username" id="email" required/> 
             </td>
         </tr>
         <tr>
@@ -35,12 +94,12 @@
         </tr>
         <tr>
             <td>
-                <button type="submit">LOGIN</button>
+                <button class = 'button' type="submit">LOGIN</button>
             </td>
         </tr>
         <tr>
             <td>
-                <button type="button" onclick="window.location.href='/'";>BACK TO HOMEPAGE</a></button><br>
+                <button class = 'button' type="button" onclick="window.location.href='/'";>HOME</a></button><br>
             </td>
         </tr>
     </table>

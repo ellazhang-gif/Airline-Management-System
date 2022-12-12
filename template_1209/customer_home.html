@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Homepage</title>
+    <style>
+        p {
+          background-color: yellow;
+        }
+        .content-table{
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            min-width: 400px;
+            border-radius: 5px 5px 0 0 ;
+            overflow: hidden;
+        }
+        .content-table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+        .content-table th,
+        .content-table td{
+            padding: 12px 15 px;
+        }
+        .content-table tbody tr{
+            border-bottom: 1px solid #dddddd;
+        }
+        .content-table tbody tr:nth-of-type(even){
+            background-color: #f3f3f3;
+        }
+    </style>
+</head>
+<body>
+    <form action="/customer_home/{{session['username']}}" method="POST">
+        <h1>  Welcome, {{session['role']}}: {{session['username']}} ! 
+        </h1>
+    </form>
+    {% if status %}
+    <p ><strong>Status: </strong> {{status}}</p>
+    {% endif %}
+    <div>
+        <h2>View my upcoming flights</h2> 
+            <form action="/customer_home/{{session['username']}}" method="POST">
+                <div>
+                    <span>Departure Date</span>
+                    <input type="date" name = "departure_date">
+                    <span>Arrival Date</span>
+                    <input type="date" name = "arrival_date">
+                    <span>Flight Number</span>
+                    <input type="text" name = "flight">
+                    <span>Departure Airport</span>
+                    <input type="text" name = "departure_airport">
+                    <span>Arrival Airport</span>
+                    <input type="text" name = "arrival_airport">
+                    <button type="submit"> Search </button>
+                </div>
+            </form>
+            {% if not search_flight %}
+            <p ><strong>Sorry: </strong> You have no such upcoming flight! </p>
+            {% endif %}
+        <table class = 'content-table' border = "1" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Airline Name</th>
+                    <th>Flight Number</th>
+                    <th>Departure Time</th>
+                    <th>Arrival Time</th>
+                    <th>Departure Airport</th>
+                    <th>Arrival Airport</th>
+                    <th>Status</th>
+                    <th>Price</th>
+                    <th>Airplane ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for row in search_flight%}
+                <tr>
+                    <!-- if select all from db, then output is a dictionary,
+                    if select specifically then the output is a list -->
+                    <td>{{row['airline_name']}}</td>
+                    <td>{{row['flight_num']}}</td>
+                    <td>{{row['departure_time']}}</td>
+                    <td>{{row['arrival_time']}}</td>
+                    <td>{{row['departure_airport_name']}}</td>
+                    <td>{{row['arrival_airport_name']}}</td>
+                    <td>{{row['status']}}</td>
+                    <td>{{row['price']}}</td>
+                    <td>{{row['airplane_id']}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h2>Track my spending</h2> 
+        <form  method="POST" action="/customer_home/{{session['username']}}">
+        <h3>Total money spent in the last year: {{year_money}}</h3></form>
+        <form  method="POST" action="/customer_home/{{session['username']}}">
+            <div class="input-group mb-3">
+              <span >Begin Date</span>
+              <input type="date" name = "begin_date" class="form-control"><br>
+              <span >End Date</span>
+              <input type="date" name = "end_date" class="form-control">
+              <button type="submit">Search</button>
+            </div>
+        </form>
+        <!-- return an image -->
+        <img src="{{bar_chart}}" align="middle"/>
+    </div>
+    <div>
+        <h2>More Options:
+        <button onclick="window.location.href='/upcoming_flight'";> SEARCH AND PURCHASE</button>
+        <button onclick="window.location.href='/login'";> LOG OUT </button><br>
+        </h2>
+    </div>
+    {% if error %}
+    <p ><strong>Error: </strong> {{error }}</p>
+    {% endif %}
+    
+</body>
+</body>
+</html>

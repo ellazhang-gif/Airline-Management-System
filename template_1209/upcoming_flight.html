@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <title>View all tickets</title> 
+    <style>
+        p {
+          background-color: yellow;
+        }
+        .content-table{
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            min-width: 400px;
+            border-radius: 5px 5px 0 0 ;
+            overflow: hidden;
+        }
+        .content-table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+        .content-table th,
+        .content-table td{
+            padding: 12px 15 px;
+        }
+        .content-table tbody tr{
+            border-bottom: 1px solid #dddddd;
+        }
+        .content-table tbody tr:nth-of-type(even){
+            background-color: #f3f3f3;
+        }
+        .button{
+            position: relative;
+            text-align: center;
+            color:  #009879;
+            font-weight: 400;
+            transition: 1.5s;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <form action="/upcoming_flight/search" method ="POST">
+    <!-- serach for upcoming flights -->
+    <h2>Search For Flight
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    <ion-icon name="airplane-outline" ></ion-icon>
+    
+    </h2>
+
+    <table>
+        <tr>
+            <td>Departure Airport </td>
+            <td><input type="text" name = "departure_airport"></td>
+        </tr>
+        <tr>
+            <td>Arrival Airport </td>
+            <td><input type="text" name = "arrival_airport"></td>
+        </tr>
+        <tr>
+            <td>Flight Number </td>
+            <td><input type="text" name = "flight_num"></td>
+        </tr>
+        <tr>
+            <td>Departure Date</td>
+            <td><input type="date" name = "departure_date"></td>
+        </tr>
+        <tr>
+            <td>Arrival Date</td>
+            <td><input type="date" name = "arrival_date"></td>
+        </tr>
+    </table>
+
+    <div><button class = 'button' type="submit"> Search </button></div>
+
+    <header>
+        <h2>Upcoming flights
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+            <ion-icon name="airplane-outline" ></ion-icon>
+    
+        </h2>
+    </header>
+    </form>
+
+    <table class = 'content-table' border = "1" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Airline Name</th>
+                <th>Flight Number</th>
+                <th>Departure Airport</th>
+                <th>Departure Time</th>
+                <th>Arrival Airport</th>
+                <th>Arrival Time</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Airplane ID</th>
+                {% if session['role']  == "Customer" %}
+                <th>Purchase </th>
+                {% endif %}
+
+                {% if session['role'] == "Booking agent" %}
+                <th>Customer Email</th>
+                <th>Buy</th>
+                {% endif %}
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {%for row in upcoming_flight%}
+            <tr>
+                <!-- if select all from db, then output is a dictionary,
+                if select specifically then the output is a list -->
+                <td>{{row['airline_name']}}</td>
+                <td>{{row['flight_num']}}</td>
+                <td>{{row['departure_airport_name']}}</td>
+                <td>{{row['departure_time']}}</td>
+                <td>{{row['arrival_airport_name']}}</td>
+                <td>{{row['arrival_time']}}</td>
+                <td>{{row['price']}}</td>
+                <td>{{row['status']}}</td>
+                <td>{{row['airplane_id']}}</td>
+                {% if session['role']  == "Customer" %}
+                    {% if row['status'] == "upcoming"%}
+                        <td>
+                            <a href = "{{ url_for('customer_purchase', customer_email = username, flight_num = row['flight_num'],airline_name = row['airline_name']) }}";><button type ="button" class = 'button'>Buy</button> </a>
+                            </td>
+                    {% else %}
+                        <td><button type="button" class = 'button' disabled> Buy</button>
+                        </td>
+                    {% endif %}
+                {% endif %}
+
+                {% if session['role'] == "Booking agent" %}
+                    <!-- 之后改成可以选择的 -->
+                    {% if row['status'] == "upcoming" and row['airline_name'] in session['company']%}
+                    <form action="{{url_for('agent_purchase', agent_email = username, flight_num = row['flight_num'], airline_name = row['airline_name'])}} "  method ="POST">
+                    <td>
+                        <input type="text" name = "customer_email">
+                    </td>
+                    <td>
+                        <button type="submit" class = 'button'> Buy </button> 
+                    </td>
+                    </form>
+                    {% else %}
+                    <td>
+                    </td>
+                        <td><button type="button" class = 'button' disabled> Buy</button>
+                        </td>
+                    {% endif %}
+
+            
+                {% endif %}
+            
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button class = 'button' onclick="window.location.href='/upcoming_flight'";>ALL UPCOMING FLIGHTS</button>
+    <button class = 'button' onclick="window.location.href='/'";>HOME</button>
+    {% if error1 %}
+    <p class="error"><strong>Error: </strong> {{error1 }}</p>
+    {% endif %}
+
+    {% if status %}
+    <p class="error"><strong>Success: </strong> {{status}}</p>
+    {% endif %}
+
+    {% if session['role'] == "Booking agent" %}
+    <button class = 'button' onclick="window.location.href='/agent_home/{{session.username|e}}'";>Go Back</button>
+    
+    {% elif session['role'] == "Customer" %}
+    <button class = 'button' onclick="window.location.href='/customer_home/{{session.username|e}}'";>Go Back</button>
+
+    {% endif %}
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</body>
+</html>
